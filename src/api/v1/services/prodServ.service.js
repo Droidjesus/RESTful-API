@@ -55,12 +55,21 @@ export const putProdServItem = async (id, paProdServItem) => {
 
 
 //DELETE (ELIMINAR) Productos/Servicios
-export const deleteProdServItem = async (id, paProdServItem) => {
-    try {
-        return await ProdServ.findOneAndDelete({IdProdServOK: id}, paProdServItem, {
-            new: true,
-        });
-    } catch (error) {
-        throw boom.badImplementation(error);
+export const deleteProdServItem = async (id, keyType) =>{
+    let prodServItem;
+    
+    try{
+        if(keyType === 'OK'){
+            prodServItem = await  ProdServ.deleteOne({
+                IdProdServOK: id,
+            });
+        }else if(keyType === 'BK'){
+            prodServItem = await ProdServ.deleteOne({
+                IdProdServBK: id,
+            });
+        }
+        return(prodServItem);
+    }catch(error){
+        throw boom.internal(error);
     }
-}
+};

@@ -66,3 +66,17 @@ export const putProdServItem = async (req, res, next) => {
 };
 
 //API DELETE (DELETE) Producto/Servicio
+export const deleteProdServItem = async (req, res, next) => {
+    try{
+        const{id} = req.params;
+        const keyType = req.query.keyType || 'OK';
+        const prodServItem = await ProdServServices.deleteProdServItem(id, keyType);
+        if(!prodServItem){
+            throw boom.badRequest('No se pudo eliminiar el producto/servicio');
+        }else if(prodServItem){
+            res.status(200).json(prodServItem);
+        }        
+    }catch(error){
+        next(error);
+    }
+};

@@ -7,7 +7,7 @@ GET {{api}}
 GET {{api}}/1
 
 ### GET ITEM
-GET {{api}}/1?keyType=OK
+GET {{api}}/100?keyType=OK
 
 ### GET ITEM
 GET {{api}}/33?keyType=BK
@@ -17,12 +17,12 @@ POST {{api}}
 Content-Type: application/json
 
 { 
-    "IdProdServPK" : 100, 
-    "IdProdServOK" : "100", 
-    "IdProdServBK" : "ENSA100", 
+    "IdProdServPK" : 101, 
+    "IdProdServOK" : "101", 
+    "IdProdServBK" : "ENSA101", 
     "IdProdServMaOK" : "1", 
     "IdProdServMaBK" : "1", 
-    "DesProdServ" : "ENFRIADOR VERTICAL G326 2PTAS CO2", 
+    "DesProdServ" : "BOCINA JBL LJLJ", 
     "IdUMedidaOK" : "1", 
     "IdUMedidaBK" : "1", 
     "cat_prod_serv_estatus" : [
@@ -173,3 +173,12 @@ Content-Type: application/json
     "IdUMedidaOK" : "1", 
     "IdUMedidaBK" : "1"
 }
+
+###DELETE ITEM Producto/Servicio
+DELETE {{api}}/103
+
+### GET ITEM
+DELETE {{api}}/101?keyType=OK
+
+### GET ITEM
+DELETE {{api}}/115?keyType=BK
